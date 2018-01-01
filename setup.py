@@ -8,10 +8,12 @@ except ImportError:
     from distutils.core import setup
 
 
-readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+from io import open
 
-install_requires = set(x.strip() for x in open('requirements.txt'))
+readme = open('README.rst', encoding='utf-8').read()
+history = open('HISTORY.rst', encoding='utf-8').read().replace('.. :changelog:', '')
+
+install_requires = set(x.strip() for x in open('requirements.txt', encoding='utf-8'))
 install_requires_replacements = {
 }
 install_requires = [install_requires_replacements.get(r, r) for r in install_requires]
